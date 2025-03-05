@@ -1,0 +1,31 @@
+{
+  "tabWidth": 2,
+  "printWidth": 100,
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@ianvs/prettier-plugin-sort-imports"
+  ],
+  "jsxBracketSameLine": true,
+  "bracketSameLine": true,
+  "importOrder": [
+    "^react$",
+    "",
+    "^react-router-dom$",
+    "",
+    "^@/hooks",
+    "",
+    "^@/Routes$",
+    "",
+    "^@/components/(.*)$",
+    "",
+    "^@/ui/(.*)$",
+    "",
+    "^@/models",
+    "",
+    "^@/constants$",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^[./]"
+  ]
+}
