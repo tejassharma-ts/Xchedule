@@ -31,7 +31,8 @@ export const ProjectFormSchema = z.object({
     .trim(),
   coverImage: z
     .string()
-    .url("Enter a valid image URL like: https://w.wallhaven.cc/full/kx/wallhaven-kxpvj7.png"),
+    .url("Enter a valid image URL like: https://w.wallhaven.cc/full/md/wallhaven-md8p11.jpg")
+    .trim(),
 });
 
 export default function AddProject() {

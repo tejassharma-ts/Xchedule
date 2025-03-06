@@ -57,7 +57,7 @@ export default function Dashboard() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-6 lg:grid-cols-2 sm:grid-cols-1">
             {paginatedResponse.results.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -84,7 +84,7 @@ function ProjectCard({ project }) {
   return (
     <div
       className={cn(
-        "flex flex-col space-y-2 relative group cursor-pointer hover:bg-muted rounded-md transition-colors duration-200",
+        "flex flex-col space-y-2 relative group cursor-pointer bg-muted/30 hover:bg-muted rounded-md transition-colors duration-200",
       )}>
       <div className="aspect-square max-h-44 shadow-md group-hover:shadow-xl transition-[shadow] duration-1000 rounded-md rounded-b-none overflow-hidden">
         <img

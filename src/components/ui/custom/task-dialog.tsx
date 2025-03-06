@@ -161,10 +161,10 @@ function TaskForm() {
           name="assignedUsers"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Assigned Users</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter user name" />
-              </FormControl>
+              <FormLabel>Assign Users</FormLabel>
+              {/* <FormControl> */}
+              {/*   <Input placeholder="Enter user name" /> */}
+              {/* </FormControl> */}
               {/* list all the users */}
               <div className="flex gap-2 pt-2 flex-wrap">
                 {users.map((user) => (
