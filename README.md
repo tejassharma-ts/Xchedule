@@ -38,11 +38,23 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone git@github.com:tejassharma-ts/trello-clone.git
    ```
-3. Install packages
+2. Install packages
    ```sh
    pnpm install
    ```
- 5. Run the app by
+ 3. Run the app by
     ```sh
     pnpm dev
     ```
+    
+### Testing with Cypress
+  ```sh
+  pnpm cypress open
+  ```
+  NOTE: please try to test app in this order:
+  1. Register
+  2. Project creation
+  3. Task popup
+  4. Drag test (you will need atleast two list to move tasks, you can re-run the Task popup(above test))
+  5. Logout
+  6. Login
