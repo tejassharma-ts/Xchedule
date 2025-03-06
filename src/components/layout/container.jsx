@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 
-const containerVariants = cva("w-full mx-auto px-8", {
+const containerVariants = cva("w-full mx-auto px-8 sm:px-2", {
   variants: {
     size: {
       default: "max-w-[1300px]",

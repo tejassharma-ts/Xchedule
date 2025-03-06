@@ -17,7 +17,9 @@ export default function Auth() {
     <RequireAuth>
       <div className="h-screen flex justify-center overflow-hidden">
         <div className="w-full mt-[20vh]">
-          <Outlet />
+          <Container size="full">
+            <Outlet />
+          </Container>
         </div>
       </div>
     </RequireAuth>
