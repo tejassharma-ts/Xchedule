@@ -44,7 +44,7 @@ export default function Board() {
             <Heading size="title" variant="bold">
               {project.title}
             </Heading>
-            <Para>{project.desc}</Para>
+            <Para className="max-w-3xl">{project.desc}</Para>
           </div>
 
           {/* ADD ON: Able to edit project */}
