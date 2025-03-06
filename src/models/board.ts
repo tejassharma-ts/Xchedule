@@ -108,7 +108,9 @@ const useBoardStore = create<BoardStore>()(
           if (!movedCard) return state;
 
           sourceList.tasks = sourceList.tasks.filter((card) => card.id !== cardId);
-          targetList.tasks.push(movedCard);
+
+          // we also need to update the listID because the card my belong to different list now
+          targetList.tasks.push({ ...movedCard, listID: targetListId });
 
           return { projects: [...state.projects] };
         }),
