@@ -29,7 +29,9 @@ export const ProjectFormSchema = z.object({
     .min(5, "Description must be at least 5 characters")
     .max(200, "Description must be less than 200 characters")
     .trim(),
-  coverImage: z.string().url("Enter a valid image URL"),
+  coverImage: z
+    .string()
+    .url("Enter a valid image URL like: https://w.wallhaven.cc/full/kx/wallhaven-kxpvj7.png"),
 });
 
 export default function AddProject() {
@@ -53,10 +55,10 @@ export function ProductForm({ setOpen }: ProductForm) {
   const [loading, setLoading] = useState(false);
 
   const { addProject } = useBoardStore();
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const form = useForm<z.infer<typeof ProjectFormSchema>>({
     resolver: zodResolver(ProjectFormSchema),
+    mode: "onChange",
     defaultValues: {
       title: "",
       desc: "",
@@ -79,6 +81,7 @@ export function ProductForm({ setOpen }: ProductForm) {
     }
   }
 
+  const imageURL = form.watch("coverImage");
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-4 max-w-lg">
@@ -117,24 +120,17 @@ export function ProductForm({ setOpen }: ProductForm) {
             <FormItem>
               <FormLabel>Cover Image URL</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Enter image URL..."
-                  {...field}
-                  onChange={(e) => {
-                    field.onChange(e);
-                    setImagePreview(e.target.value);
-                  }}
-                />
+                <Input placeholder="Enter image URL..." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        {imagePreview && (
+        {imageURL && (
           <div className="mt-2 max-h-52">
             <img
-              src={imagePreview}
+              src={imageURL}
               alt="Cover Preview"
               className="object-cover rounded-lg shadow h-full w-full"
             />
