@@ -37,6 +37,14 @@ describe("Authentication", () => {
 
       cy.contains(messages.invalidCredentials).should("be.visible");
     });
+
+    it("Success with regsited user", () => {
+      cy.get("@emailInput").clear().type("verissimus@gmail.com");
+      cy.get("@passwordInput").clear().type("cosmonaut");
+      cy.get("@loginButton").click();
+
+      cy.contains(messages.invalidCredentials).should("be.visible");
+    });
   });
 
   afterEach(() => {

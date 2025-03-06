@@ -24,3 +24,11 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import "cypress-localstorage-commands";
+import "@4tw/cypress-drag-drop";
+
+// theoratically it should give me the ablitiy to run test conditionally
+Cypress.Commands.add("onlyOn", (enabled) => {
+  if (enabled !== true) {
+    cy.state("runnable").ctx.skip();
+  }
+});

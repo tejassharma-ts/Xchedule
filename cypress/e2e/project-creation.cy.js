@@ -7,6 +7,7 @@ describe("Project creation", () => {
     it("Add project button should be present and modal should get open", () => {
       cy.get('[data-cy="project-add-button"]').as("projectCreationButton").should("be.visible");
 
+      cy.wait(200);
       cy.get("@projectCreationButton").first().click();
     });
 
@@ -46,9 +47,9 @@ describe("Project creation", () => {
 
       cy.get("input[name='coverImage']")
         .clear()
-        .type(
-          "https://plus.unsplash.com/premium_photo-1741030501566-e0183860a80f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0MXx8fGVufDB8fHx8fA%3D%3D",
-        );
+        .type("https://w.wallhaven.cc/full/md/wallhaven-md8p11.jpg");
+
+      cy.wait(1000);
 
       cy.get("button[type='submit']").click();
 

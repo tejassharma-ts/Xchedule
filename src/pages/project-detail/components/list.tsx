@@ -31,6 +31,7 @@ export default function List({ list }: ListProps) {
   return (
     <div
       ref={drop}
+      data-cy="single-list"
       className="w-96 p-4 flex flex-col space-y-4 border rounded-lg flex-shrink-0 self-start">
       <Heading size="base" variant="bold">
         {list.title}

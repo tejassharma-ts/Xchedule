@@ -45,6 +45,7 @@ export default function Task({ task, listId, idx }: TaskProps) {
   const usersIDs = task?.assignedUsers ?? [];
   return (
     <div
+      data-cy="single-task"
       onClick={() => {
         setCurrentTask(task);
       }}

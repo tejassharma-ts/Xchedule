@@ -84,6 +84,9 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@18.3.18)(react@18.3.1)
     devDependencies:
+      '@4tw/cypress-drag-drop':
+        specifier: ^2.3.0
+        version: 2.3.0(cypress@14.1.0)
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.18.0
@@ -137,6 +140,11 @@ importers:
         version: 6.0.11(@types/node@22.13.9)(jiti@1.21.7)(yaml@2.7.0)
 
 packages:
+
+  '@4tw/cypress-drag-drop@2.3.0':
+    resolution: {integrity: sha512-r6/Um+GLidi9mFTx8qiFf1ECMNmwLTLp+CgKVLpYZvJ2aV6mYoe1Uv8Iq1AwqRhhIAdf04aFJ0xzGEO1gnOm1g==}
+    peerDependencies:
+      cypress: 2 - 14
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -2876,6 +2884,10 @@ packages:
         optional: true
 
 snapshots:
+
+  '@4tw/cypress-drag-drop@2.3.0(cypress@14.1.0)':
+    dependencies:
+      cypress: 14.1.0
 
   '@alloc/quick-lru@5.2.0': {}
 

@@ -135,7 +135,12 @@ function TaskForm() {
             <FormItem>
               <FormLabel>Title</FormLabel>
               <FormControl>
-                <Input placeholder="Task title..." {...field} autoFocus />
+                <Input
+                  data-cy="task-title-input"
+                  placeholder="Task title..."
+                  {...field}
+                  autoFocus
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -149,7 +154,11 @@ function TaskForm() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <Textarea placeholder="Enter task description..." {...field} />
+                <Textarea
+                  data-cy="task-desc"
+                  placeholder="Enter task description..."
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -188,7 +197,9 @@ function TaskForm() {
           )}
         />
 
-        <Button loading={loading} type="submit" className="ml-auto">
+        <Button 
+          data-cy="task-submit-btn"
+          loading={loading} type="submit" className="ml-auto">
           Save Task
         </Button>
       </form>

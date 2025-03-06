@@ -22,7 +22,7 @@ export function UserNav() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
+      <DropdownMenuTrigger data-cy="user-nav-button" asChild className="cursor-pointer">
         <span className="relative">
           <UserAvatar src={user.profile} />
         </span>

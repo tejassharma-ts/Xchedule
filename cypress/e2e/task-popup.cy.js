@@ -48,4 +48,12 @@ describe("Task Popup", () => {
     cy.contains("TODO").should("exist");
     cy.contains("TODO").click();
   });
+
+  it("Validate task form schema", () => {
+    cy.contains("Save Task").click();
+
+    cy.get("[data-cy='task-title-input']").clear().type("Updating the task");
+    cy.get("[data-cy='task-desc']").clear().type("Updating the description");
+    cy.get("[data-cy='task-submit-btn']").click();
+  });
 });
