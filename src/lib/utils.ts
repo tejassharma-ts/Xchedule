@@ -9,3 +9,19 @@ export function cn(...inputs: ClassValue[]) {
 export async function delay(duration = 2000) {
   await new Promise((res) => setTimeout(res, duration));
 }
+
+export function getRandomGreeting() {
+  const greetings = [
+    "Hello",
+    "Hey there",
+    "Hi",
+    "Greetings",
+    "Howdy",
+    "What's up",
+    "Yo",
+    "Good to see you",
+    "Hola",
+    "Ahoy",
+  ];
+  return greetings[Math.floor(Math.random() * greetings.length)];
+}

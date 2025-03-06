@@ -29,8 +29,8 @@ export function UserNav() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-60 z-[5000]" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1 text-base text-sm">
-            <p className="leading-none font-medium uppercase">{user.name}</p>
+          <div className="flex flex-col space-y-1 text-sm">
+            <p className="leading-none font-medium capitalize">{user.name}</p>
             <p className="leading-none font-medium">{user.email}</p>
           </div>
         </DropdownMenuLabel>

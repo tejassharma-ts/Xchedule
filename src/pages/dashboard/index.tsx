@@ -6,12 +6,13 @@ import Pagination from "@/components/pagination";
 import { Button } from "@/components/ui/button";
 import Heading from "@/components/ui/heading";
 import Para from "@/components/ui/para";
+import { UserAvatar } from "@/components/user-glance";
 
 import useAuthStore from "@/models/auth";
 import useBoardStore from "@/models/board";
 
 import { ROUTE_MAP } from "@/data/routes";
-import { cn } from "@/lib/utils";
+import { cn, getRandomGreeting } from "@/lib/utils";
 
 import AddProject from "./components/add-project";
 
@@ -44,15 +45,26 @@ export default function Dashboard() {
       <Container size="full" className="flex flex-col space-y-8 h-full">
         <div className="flex justify-between items-center">
           <Heading size="title" variant="bold">
-            Your Projects
+            Your Projects{" "}
+            {userProjects.length ? (
+              <span className="text-muted-foreground">({userProjects.length})</span>
+            ) : null}
           </Heading>
           <AddProject />
         </div>
 
         {!paginatedResponse.count ? (
           <div className="py-20">
-            <div className="flex justify-center flex-col items-center space-y-4">
-              <Heading size="xxl" variant="medium">Create a New Project</Heading>
+            <div className="flex justify-center flex-col items-center">
+              <div className="flex items-center space-x-2">
+                <Heading size="xxl" variant="medium">
+                  {getRandomGreeting()} {user.name}!
+                </Heading>
+                <UserAvatar src={user.profile} />
+              </div>
+              <Heading size="xxl" variant="medium" className="mt-1 mb-4">
+                Go ahead and create some projects.
+              </Heading>
               <AddProject />
             </div>
           </div>
@@ -95,7 +107,9 @@ function ProjectCard({ project }) {
       </div>
 
       <div className="flex flex-col text-sm line-clamp-2 px-4 py-2">
-        <Heading size="xl">{title}</Heading>
+        <Heading size="xl" className="line-clamp-1">
+          {title}
+        </Heading>
         <Para className="text-sm font-normal text-muted-foreground line-clamp-2">{desc}</Para>
       </div>
 
