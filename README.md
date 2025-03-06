@@ -36,7 +36,8 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:tejassharma-ts/trello-clone.git
+   git clone git@github.com:tejassharma-ts/Xchedule.git
+   cd Xchedule
    ```
 2. Install packages
    ```sh
