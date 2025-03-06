@@ -1,7 +1,6 @@
 # Xchedule
 
-A simple clone of Trello. Since this is primarily a front-end app, the data is queried from localStorage.
-NOTE: I've used JSX/JS where strict typing is not absolutely necessary to reduce development time.
+A simple clone of Trello. Since this is primarily a front-end app, the data is queried from localStorage. I've used JSX/JS where strict typing is not absolutely necessary to reduce development time.
 
 [**🖥️ Live Demo (Netlify)**](https://trackier-errand.netlify.app/)
 
