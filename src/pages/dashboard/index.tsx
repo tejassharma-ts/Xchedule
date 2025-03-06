@@ -55,8 +55,8 @@ export default function Dashboard() {
 
         {!paginatedResponse.count ? (
           <div className="py-20">
-            <div className="flex justify-center flex-col items-center">
-              <div className="flex items-center space-x-2 text-center">
+            <div className="flex justify-center flex-col items-center text-center">
+              <div className="flex items-center space-x-2">
                 <Heading size="xxl" variant="medium">
                   {getRandomGreeting()} {user.name}!
                 </Heading>
