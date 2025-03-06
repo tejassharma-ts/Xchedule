@@ -4,6 +4,17 @@
   functions = "netlify/functions"
   publish = "dist"
 
+[[headers]]
+  for = "/*.html"
+    [headers.values]
+      Cache-Control = "no-store"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]
