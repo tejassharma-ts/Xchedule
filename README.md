@@ -1,6 +1,6 @@
 # Xchedule
 
-A simple clone of Trello. Since this is primarily a front-end app, the data is queried from localStorage.
+A simple clone of Trello. Since this is primarily a front-end app, the data is queried from localStorage. I've used JSX/JS where strict typing is not absolutely necessary to reduce development time.
 
 [**🖥️ Live Demo (Netlify)**](https://trackier-errand.netlify.app/)
 
@@ -36,7 +36,8 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone git@github.com:tejassharma-ts/trello-clone.git
+   git clone git@github.com:tejassharma-ts/Xchedule.git
+   cd Xchedule
    ```
 2. Install packages
    ```sh
