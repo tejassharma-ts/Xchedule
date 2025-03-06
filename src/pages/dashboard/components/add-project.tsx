@@ -37,7 +37,7 @@ export default function AddProject() {
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogTrigger asChild>
-        <Button>Add Project</Button>
+        <Button data-cy="project-add-button">Add Project</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <ProductForm setOpen={setOpen} />

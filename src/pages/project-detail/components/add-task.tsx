@@ -55,14 +55,18 @@ export default function AddTask({ ID }: { ID: string }) {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <Input placeholder="Enter a title..." {...field} autoFocus />
+                    <Input 
+                      data-cy="task-input"
+                      placeholder="Enter a title..." {...field} autoFocus />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <div className="flex gap-2">
-              <Button disabled={loading} type="submit" loading={loading}>
+              <Button 
+                data-cy="task-submit"
+                disabled={loading} type="submit" loading={loading}>
                 Add Task
               </Button>
               <Button

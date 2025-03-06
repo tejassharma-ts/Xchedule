@@ -137,7 +137,6 @@ const useBoardStore = create<BoardStore>()(
           tasks: [],
         };
 
-        console.log("wtf");
         const updatedProjects = get().projects.map((project) => {
           if (project.id === ID) {
             return {
@@ -205,7 +204,6 @@ const useBoardStore = create<BoardStore>()(
 
           const updatedLists = project.lists.map((list) => {
             if (list.id !== listID) return list;
-
             return {
               ...list,
               tasks: list.tasks.map((task) => {

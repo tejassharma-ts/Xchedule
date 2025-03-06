@@ -51,7 +51,7 @@ export default function Task({ task, listId, idx }: TaskProps) {
       ref={(node) => drag(drop(node))}
       className={cn(
         "px-3 py-2 border text-white rounded-md cursor-pointer transition-shadow hover:border-white/50 hover:shadow-md space-y-1 duration-1000",
-        isDragging && "opacity-0",
+        isDragging && "opacity-50",
       )}>
       <Heading variant="bold">{task.title}</Heading>
       <Para className="font-normal">{task.desc}</Para>

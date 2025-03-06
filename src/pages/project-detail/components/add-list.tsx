@@ -79,7 +79,12 @@ export default function AddList() {
           </form>
         </Form>
       ) : (
-        <Button variant="ghost" onClick={() => setIsAdding(true)}>
+        <Button
+          disabled={loading}
+          loading={loading}
+          data-cy="add-new-list-button"
+          variant="ghost"
+          onClick={() => setIsAdding(true)}>
           <Icons.add size={16} className="mr-2" />
           Add list
         </Button>

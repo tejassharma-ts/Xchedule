@@ -48,10 +48,11 @@ export default function Dashboard() {
           </Heading>
           <AddProject />
         </div>
+
         {!paginatedResponse.count ? (
           <div className="py-20">
             <div className="flex justify-center flex-col items-center space-y-4">
-              <Heading size="xxl">Create a New Project</Heading>
+              <Heading size="xxl" variant="medium">Create a New Project</Heading>
               <AddProject />
             </div>
           </div>
@@ -82,7 +83,6 @@ function ProjectCard({ project }) {
   const { title, desc, coverImage } = project;
   return (
     <div
-      onClick={() => {}}
       className={cn(
         "flex flex-col space-y-2 relative group cursor-pointer hover:bg-muted rounded-md transition-colors duration-200",
       )}>
@@ -100,8 +100,8 @@ function ProjectCard({ project }) {
       </div>
 
       <Link
+        data-cy="project-card"
         to={`${ROUTE_MAP.PROJECT.BASE}/${project.id}`}
-        state={{ project }}
         className="absolute inset-0"
       />
     </div>
