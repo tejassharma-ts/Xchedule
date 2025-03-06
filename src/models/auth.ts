@@ -41,8 +41,7 @@ export const useAuthStore = create<AuthState>()(
 
         // user already exists?
         if (storedUsers.some((user: User) => user.email === formData.email)) {
-          toast.error("User already exists!");
-          return;
+          throw new Error("User already exists!");
         }
 
         // TODO: need to hash password
