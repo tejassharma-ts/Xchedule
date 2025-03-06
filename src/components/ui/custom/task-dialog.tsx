@@ -76,7 +76,7 @@ export type TaskFormValues = z.infer<typeof formSchema>;
 function TaskForm() {
   const [loading, setLoading] = useState(false);
 
-  const { users } = useAuthStore();
+  const { user: authUser, users } = useAuthStore();
   const { task, closeDialog } = useDialogStore();
   const { currentProject, updateTaskOfList } = useBoardStore();
 
@@ -175,10 +175,11 @@ function TaskForm() {
                     }}
                     variant="outline"
                     className={cn(
-                      isOptionSelected(user) && "bg-white hover:bg-white text-black hover:text-black",
+                      isOptionSelected(user) &&
+                        "bg-white hover:bg-white text-black hover:text-black",
                       "rounded-full",
                     )}>
-                    {user.name}
+                    {authUser.id === user.id ? "You" : user.name}
                   </Button>
                 ))}
               </div>

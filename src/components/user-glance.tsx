@@ -12,7 +12,7 @@ type UserGlaceProps = {
 };
 
 export default function UserGlance({ className, usersIDs }: UserGlaceProps) {
-  const { users } = useAuthStore();
+  const { user: authUser, users } = useAuthStore();
   const assignedUsers = users.filter((user) => usersIDs.includes(user.id));
 
   return (
@@ -26,7 +26,7 @@ export default function UserGlance({ className, usersIDs }: UserGlaceProps) {
               </div>
             </TooltipTrigger>
             <TooltipContent className="text-sm py-1 px-3">
-              <p>{user.name}</p>
+              <p>{authUser.id === user.id ? "You" : user.name}</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
