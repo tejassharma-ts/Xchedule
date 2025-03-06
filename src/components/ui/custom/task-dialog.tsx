@@ -75,6 +75,7 @@ export type TaskFormValues = z.infer<typeof formSchema>;
 
 function TaskForm() {
   const [loading, setLoading] = useState(false);
+  const [givenName, setGivenName] = useState("");
 
   const { user: authUser, users } = useAuthStore();
   const { task, closeDialog } = useDialogStore();
@@ -125,6 +126,10 @@ function TaskForm() {
     }
   }
 
+  const filteredUsers = givenName
+    ? users.filter((user) => user.name.toLowerCase().includes(givenName.toLowerCase()))
+    : users;
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-4 max-w-lg">
@@ -154,11 +159,7 @@ function TaskForm() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <Textarea
-                  data-cy="task-desc"
-                  placeholder="Enter task description..."
-                  {...field}
-                />
+                <Textarea data-cy="task-desc" placeholder="Enter task description..." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -172,11 +173,16 @@ function TaskForm() {
             <FormItem>
               <FormLabel>Assign Users</FormLabel>
               {/* <FormControl> */}
-              {/*   <Input placeholder="Enter user name" /> */}
+              <Input
+                onChange={(e) => {
+                  setGivenName(e.target.value);
+                }}
+                placeholder="Enter user name"
+              />
               {/* </FormControl> */}
               {/* list all the users */}
               <div className="flex gap-2 pt-2 flex-wrap">
-                {users.map((user) => (
+                {filteredUsers.map((user) => (
                   <Button
                     type="button"
                     onClick={() => {
@@ -197,9 +203,7 @@ function TaskForm() {
           )}
         />
 
-        <Button 
-          data-cy="task-submit-btn"
-          loading={loading} type="submit" className="ml-auto">
+        <Button data-cy="task-submit-btn" loading={loading} type="submit" className="ml-auto">
           Save Task
         </Button>
       </form>

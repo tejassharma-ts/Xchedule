@@ -39,11 +39,22 @@ export default function Board() {
           </Link>
         </div>
 
-        <Heading size="title" variant="bold">
-          {project.title}
-        </Heading>
-        <Para>{project.desc}</Para>
+        <div className="flex">
+          <div>
+            <Heading size="title" variant="bold">
+              {project.title}
+            </Heading>
+            <Para>{project.desc}</Para>
+          </div>
+
+          {/* ADD ON: Able to edit project */}
+          {/* <Button className="ml-auto" variant="ghost"> */}
+          {/*   Edit Project */}
+          {/*   <Icons.edit className="size-5 ml-2" /> */}
+          {/* </Button> */}
+        </div>
       </Container>
+
       <div className="flex gap-4 overflow-x-auto mt-8 h-full pl-8 pr-8">
         {project.lists.map((list) => (
           <List key={list.id} list={list} />

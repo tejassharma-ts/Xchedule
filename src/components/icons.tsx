@@ -33,8 +33,7 @@ function Cart({ className }) {
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      className={className}
-    >
+      className={className}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -46,18 +45,11 @@ function Cart({ className }) {
 
 function LinkedIn({ className }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      x="0"
-      y="0"
-      viewBox="0 0 30 30"
-      className={className}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 30 30" className={className}>
       <path
         fill="currentColor"
         fillRule="evenodd"
-        d="M24 4H6a2 2 0 00-2 2v18a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zM10.954 22h-2.95v-9.492h2.95V22zM9.449 11.151a1.72 1.72 0 110-3.44 1.72 1.72 0 010 3.44zM22.004 22h-2.948v-4.616c0-1.101-.02-2.517-1.533-2.517-1.535 0-1.771 1.199-1.771 2.437V22h-2.948v-9.492h2.83v1.297h.04c.394-.746 1.356-1.533 2.791-1.533 2.987 0 3.539 1.966 3.539 4.522V22z"
-      ></path>
+        d="M24 4H6a2 2 0 00-2 2v18a2 2 0 002 2h18a2 2 0 002-2V6a2 2 0 00-2-2zM10.954 22h-2.95v-9.492h2.95V22zM9.449 11.151a1.72 1.72 0 110-3.44 1.72 1.72 0 010 3.44zM22.004 22h-2.948v-4.616c0-1.101-.02-2.517-1.533-2.517-1.535 0-1.771 1.199-1.771 2.437V22h-2.948v-9.492h2.83v1.297h.04c.394-.746 1.356-1.533 2.791-1.533 2.987 0 3.539 1.966 3.539 4.522V22z"></path>
     </svg>
   );
 }
@@ -69,8 +61,7 @@ function Trash({ className }) {
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
-      className={cn(className)}
-    >
+      className={cn(className)}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -82,28 +73,35 @@ function Trash({ className }) {
 
 function TikTok({ ...props }) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 48 48"
-      {...props}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" {...props}>
       <path
         // fill="#fff"
         fill="currentColor"
-        d="M34.145 0h-8.09v32.696c0 3.895-3.11 7.095-6.982 7.095-3.872 0-6.984-3.2-6.984-7.095 0-3.826 3.043-6.957 6.776-7.096v-8.209C10.637 17.531 4 24.278 4 32.696 4 41.183 10.776 48 19.142 48s15.141-6.887 15.141-15.304V15.93A18.732 18.732 0 0045 19.548v-8.209C38.916 11.13 34.145 6.122 34.145 0z"
-      ></path>
+        d="M34.145 0h-8.09v32.696c0 3.895-3.11 7.095-6.982 7.095-3.872 0-6.984-3.2-6.984-7.095 0-3.826 3.043-6.957 6.776-7.096v-8.209C10.637 17.531 4 24.278 4 32.696 4 41.183 10.776 48 19.142 48s15.141-6.887 15.141-15.304V15.93A18.732 18.732 0 0045 19.548v-8.209C38.916 11.13 34.145 6.122 34.145 0z"></path>
     </svg>
   );
 }
 
 function loader({ className, ...props }) {
+  return <LoaderCircle size={20} className={cn("mr-2 animate-spin", className)} {...props} />;
+}
+
+function Edit(props) {
   return (
-    <LoaderCircle
-      size={20}
-      className={cn("mr-2 animate-spin", className)}
-      {...props}
-    />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+      {...props}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+      />
+    </svg>
   );
 }
 
@@ -136,4 +134,5 @@ export const Icons = {
   settings: Settings,
   history: History,
   alert: CircleAlert,
+  edit: Edit,
 };
