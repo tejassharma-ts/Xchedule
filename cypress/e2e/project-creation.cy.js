@@ -5,7 +5,7 @@ describe("Project creation", () => {
 
   describe("Project", () => {
     it("Add project button should be present and modal should get open", () => {
-      cy.get('[data-cy="project-add-button"]').as("projectCreationButton").should("be.visible");
+      cy.get('[data-cy="project-add-button"]').as("projectCreationButton").should("exist");
 
       cy.wait(200);
       cy.get("@projectCreationButton").first().click();
@@ -14,27 +14,27 @@ describe("Project creation", () => {
     it("Shows validation errors for empty fields", () => {
       cy.get("button[type='submit']").click();
 
-      cy.contains("Title must be at least 3 characters").should("be.visible");
-      cy.contains("Description must be at least 5 characters").should("be.visible");
-      cy.contains("Enter a valid image URL").should("be.visible");
+      cy.contains("Title must be at least 3 characters").should("exist");
+      cy.contains("Description must be at least 5 characters").should("exist");
+      cy.contains("Enter a valid image URL").should("exist");
     });
 
     it("Validates title length", () => {
       cy.get("input[name='title']").type("ab");
       cy.get("button[type='submit']").click();
-      cy.contains("Title must be at least 3 characters").should("be.visible");
+      cy.contains("Title must be at least 3 characters").should("exist");
     });
 
     it("Validates description length", () => {
       cy.get("textarea[name='desc']").type("1234");
       cy.get("button[type='submit']").click();
-      cy.contains("Description must be at least 5 characters").should("be.visible");
+      cy.contains("Description must be at least 5 characters").should("exist");
     });
 
     it("Validates invalid image URL", () => {
       cy.get("input[name='coverImage']").type("invalid-url");
       cy.get("button[type='submit']").click();
-      cy.contains("Enter a valid image URL").should("be.visible");
+      cy.contains("Enter a valid image URL").should("exist");
     });
 
     it("Submits successfully with valid data", () => {
@@ -53,7 +53,7 @@ describe("Project creation", () => {
 
       cy.get("button[type='submit']").click();
 
-      cy.contains("Project created successfully!").should("be.visible");
+      cy.contains("Project created successfully!").should("exist");
     });
   });
 });

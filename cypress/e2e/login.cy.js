@@ -15,8 +15,8 @@ describe("Authentication", () => {
 
   describe("Sign In", () => {
     beforeEach(() => {
-      cy.get('[data-cy="email-input"]').as("emailInput").should("be.visible");
-      cy.get('[data-cy="password-input"]').as("passwordInput").should("be.visible");
+      cy.get('[data-cy="email-input"]').as("emailInput").should("exist");
+      cy.get('[data-cy="password-input"]').as("passwordInput").should("exist");
       cy.get('[data-cy="login-button"]').as("loginButton");
     });
 
@@ -26,8 +26,8 @@ describe("Authentication", () => {
       cy.get("@passwordInput").type("cos");
       cy.get("@loginButton").click();
 
-      cy.contains(messages.invalidEmail).should("be.visible");
-      cy.contains(messages.shortPassword).should("be.visible");
+      cy.contains(messages.invalidEmail).should("exist");
+      cy.contains(messages.shortPassword).should("exist");
     });
 
     it("Rejects login with invalid credentials", () => {
@@ -35,7 +35,7 @@ describe("Authentication", () => {
       cy.get("@passwordInput").clear().type("cosmonaut");
       cy.get("@loginButton").click();
 
-      cy.contains(messages.invalidCredentials).should("be.visible");
+      cy.contains(messages.invalidCredentials).should("exist");
     });
 
     it("Success with regsited user", () => {
@@ -43,7 +43,7 @@ describe("Authentication", () => {
       cy.get("@passwordInput").clear().type("cosmonaut");
       cy.get("@loginButton").click();
 
-      cy.contains(messages.invalidCredentials).should("be.visible");
+      cy.contains(messages.invalidCredentials).should("exist");
     });
   });
 

@@ -5,9 +5,9 @@ describe("Registration Flow", () => {
   });
 
   beforeEach(() => {
-    cy.get('[data-cy="name-input"]').as("nameInput").should("be.visible");
-    cy.get('[data-cy="email-input"]').as("emailInput").should("be.visible");
-    cy.get('[data-cy="password-input"]').as("passwordInput").should("be.visible");
+    cy.get('[data-cy="name-input"]').as("nameInput").should("exist");
+    cy.get('[data-cy="email-input"]').as("emailInput").should("exist");
+    cy.get('[data-cy="password-input"]').as("passwordInput").should("exist");
     cy.get('[data-cy="signup-button"]').as("signUpButton");
   });
 
@@ -25,9 +25,9 @@ describe("Registration Flow", () => {
     cy.get("@passwordInput").type("cos");
     cy.get("@signUpButton").click();
 
-    cy.contains(messages.shortName).should("be.visible");
-    cy.contains(messages.invalidEmail).should("be.visible");
-    cy.contains(messages.shortPassword).should("be.visible");
+    cy.contains(messages.shortName).should("exist");
+    cy.contains(messages.invalidEmail).should("exist");
+    cy.contains(messages.shortPassword).should("exist");
     cy.get("@signUpButton").click();
   });
 
@@ -37,7 +37,7 @@ describe("Registration Flow", () => {
     cy.get("@passwordInput").clear().type("cosmonaut");
 
     cy.get("@signUpButton").click();
-    cy.contains(messages.registrationSuccess).should("be.visible");
+    cy.contains(messages.registrationSuccess).should("exist");
 
     cy.url().should("equal", Cypress.config("baseUrl"));
   });

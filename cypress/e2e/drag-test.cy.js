@@ -13,16 +13,16 @@ describe("Task Drag and drop functionality", () => {
   });
 
   it("should move the first task from one list to another", () => {
-    // Select the first task dynamically
+    // select the first task
     cy.get("[data-cy='single-task']").first().as("task");
 
-    // Select the second list dynamically
+    // select the second list
     cy.get("[data-cy='single-list']").eq(1).as("targetList");
 
-    // Drag the task to the target list
+    // drag the task to the target list
     cy.get("@task").drag("@targetList");
 
-    // Verify the task is now in the second list
+    // verify
     cy.get("@targetList").contains("Task").should("exist");
   });
 });

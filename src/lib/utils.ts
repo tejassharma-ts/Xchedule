@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// just to make it feel like we are actually interactive with server
+// just to make it feel like we are actually interacting with server
 export async function delay(duration = 2000) {
   await new Promise((res) => setTimeout(res, duration));
 }
