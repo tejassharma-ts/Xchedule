@@ -33,7 +33,7 @@ export default function Board() {
       {/* bg-[#f6f8f9] */}
       <Container size="full">
         <div className="mb-8">
-          <Link to={ROUTE_MAP.HOME} className={cn(buttonVariants({ variant: "ghost" }))}>
+          <Link to={ROUTE_MAP.HOME} className={cn(buttonVariants({ variant: "secondary" }))}>
             <Icons.left size={16} className="mr-2" />
             All projects
           </Link>

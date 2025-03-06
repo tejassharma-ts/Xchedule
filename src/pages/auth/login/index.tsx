@@ -79,7 +79,7 @@ export default function Login() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Your email" {...field} />
+                  <Input data-cy="email-input" placeholder="Your email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -91,13 +91,13 @@ export default function Login() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <PasswordInput placeholder="Your password" {...field} />
+                  <PasswordInput data-cy="password-input" placeholder="Your password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button loading={loading} type="submit" size="sm" className="w-full">
+          <Button data-cy="login-button" loading={loading} type="submit" size="sm" className="w-full">
             Sign in
           </Button>
         </form>
@@ -106,6 +106,7 @@ export default function Login() {
         <p className=" text-center text-muted-foreground">
           Don't have an account?{" "}
           <Link
+            data-cy="register-button"
             to={ROUTE_MAP.AUTH.REGISTER}
             className="underline underline-offset-4 hover:text-foreground">
             Register

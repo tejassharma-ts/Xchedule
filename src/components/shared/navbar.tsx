@@ -23,7 +23,7 @@ export default function Navbar() {
       <Container size="full" className="flex justify-between w-full sm:px-2 items-center">
         <div>
           <Heading size="xxl" variant="bold">
-            Trello<span>.</span>
+            Trello<span className="size-2 bg-muted inline-block rounded-full ml-1"></span>
           </Heading>
         </div>
 

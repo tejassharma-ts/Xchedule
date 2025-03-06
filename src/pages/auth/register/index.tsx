@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Container from "@/components/layout/container";
-import Heading from "@/components/ui/heading";
 import { PasswordInput } from "@/components/password-input";
-import Section from "@/components/ui/section";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
@@ -15,18 +13,20 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import Heading from "@/components/ui/heading";
 import { Input } from "@/components/ui/input";
+import Para from "@/components/ui/para";
+import Section from "@/components/ui/section";
 
 import useAuthStore from "@/models/auth";
 
 import { ROUTE_MAP } from "@/data/routes";
+import AppError from "@/lib/error";
 import { cn, delay } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import AppError from "@/lib/error";
-import Para from "@/components/ui/para";
 
 export const RegisterSchema = z.object({
   name: z
@@ -34,9 +34,7 @@ export const RegisterSchema = z.object({
     .min(2, { message: "Should be more than 2 characters" })
     .max(50, { message: "Should not be more than 50 characters" })
     .trim(),
-  email: z
-    .string({ required_error: "Email is required" })
-    .email("Invalid email address"),
+  email: z.string({ required_error: "Email is required" }).email("Invalid email address"),
   password: z
     .string({ required_error: "Password is required" })
     .min(6, { message: "Password must be at least 6 characters" }),
@@ -90,7 +88,7 @@ export default function Register() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Your name" {...field} />
+                  <Input data-cy="name-input" placeholder="Your name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -102,7 +100,7 @@ export default function Register() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder="Your email" {...field} />
+                  <Input data-cy="email-input" placeholder="Your email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -114,13 +112,15 @@ export default function Register() {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <PasswordInput placeholder="Your password" {...field} />
+                  <PasswordInput data-cy="password-input" placeholder="Your password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button loading={loading} type="submit" size="sm" className="w-full">
+          <Button 
+            data-cy="signup-button"
+            loading={loading} type="submit" size="sm" className="w-full">
             Sign up
           </Button>
         </form>
@@ -130,8 +130,7 @@ export default function Register() {
           Already have an account?{" "}
           <Link
             to={ROUTE_MAP.AUTH.LOGIN}
-            className="underline underline-offset-4 hover:text-foreground"
-          >
+            className="underline underline-offset-4 hover:text-foreground">
             Login
           </Link>
         </p>
